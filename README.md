@@ -63,7 +63,7 @@ The data in data folder : data/census.csv
 ### TRAINING
 You can preprocess data and training model in starter folder:
 
-The MODEL_CARD_TEMPLATE: [Model_card](../week3/project-3-udacity/starter/starter/model_card_template.md)
+The MODEL_CARD_TEMPLATE: [Model_card](model_card_template.md)
 
 ```bash
 python train_model.py
