@@ -33,7 +33,7 @@ class ai_serving:
             result = main_inference(DataInput(**body).dict())
             return {"message": str(result), "status": 200}
         except ImportError as e:
-            return {"message": str(e), "status": 500}
+            return {"message": str(e), "status": 422}
 
 
 ai = ai_serving().app

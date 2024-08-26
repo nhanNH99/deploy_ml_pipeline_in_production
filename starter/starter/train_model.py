@@ -4,7 +4,7 @@ import os
 import joblib
 import pandas as pd
 from ml.data import process_data
-from ml.model import compute_model_metrics, inference, train_model
+from ml.model import compute_model_metrics, inference, train_model, compute_slice_metrics
 from sklearn.model_selection import KFold
 
 # Add code to load in the data.
@@ -55,11 +55,8 @@ for train_index, test_index in kf.split(data):
         joblib.dump([model, encoder, lb], "model.pkl")
     # Make predictions
     preds = inference(model, X_test)
-
     # Compute metrics
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
-
-    # Store metrics
     precision_scores.append(precision)
     recall_scores.append(recall)
     fbeta_scores.append(fbeta)
@@ -71,3 +68,5 @@ avg_fbeta = sum(fbeta_scores) / len(fbeta_scores)
 print(f"Average Precision: {avg_precision:.4f}")
 print(f"Average Recall: {avg_recall:.4f}")
 print(f"Average F-beta: {avg_fbeta:.4f}")
+
+compute_slice_metrics(model, X_test, y_test, cat_features)
