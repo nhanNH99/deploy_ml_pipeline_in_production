@@ -51,7 +51,7 @@ def run_sanity_check(test_dir):
     SANITY_TEST_PASSING = True
     WARNING_COUNT = 1
 
-    ## GET()
+    # GET()
     TEST_FOR_GET_METHOD_RESPONSE_CODE = False
     TEST_FOR_GET_METHOD_RESPONSE_BODY = False
     if not test_functions_for_get:
