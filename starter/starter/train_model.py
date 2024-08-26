@@ -5,8 +5,12 @@ import os
 import joblib
 import pandas as pd
 from ml.data import process_data
-from ml.model import (compute_model_metrics, compute_slice_metrics, inference,
-                      train_model)
+from ml.model import (
+    compute_model_metrics,
+    compute_slice_metrics,
+    inference,
+    train_model,
+)
 from sklearn.model_selection import KFold
 
 # Add code to load in the data.

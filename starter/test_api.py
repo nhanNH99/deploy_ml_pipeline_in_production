@@ -1,6 +1,5 @@
 import pytest
 from fastapi.testclient import TestClient
-
 from main import ai  # Replace with the actual module name
 
 client = TestClient(ai)
