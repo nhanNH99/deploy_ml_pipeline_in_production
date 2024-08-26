@@ -9,6 +9,7 @@ Day : 26-08-2024
 # PROJECT 3 - DEPLOY ML PIPELINE WITH FASTAPI
 
 ## PROJECT DESCRIPTION
+The project in the udacity course is to build an AI service with full CI/CD for a machine learning model deployment process. In this project, I learned how to implement github actions, write test cases for the API, and deploy on RENDER.com.
 
 ### FOLDER OF PROJECT "STARTER"
 ```bash
