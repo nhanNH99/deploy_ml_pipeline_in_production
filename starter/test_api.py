@@ -1,5 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
+
 from main import ai  # Replace with the actual module name
 
 client = TestClient(ai)
@@ -63,3 +64,4 @@ def test_inference_invalid_data():
 
     response = client.post("/inference", json=input_data)
     assert response.status_code == 422
+    assert "detail" in response.json()

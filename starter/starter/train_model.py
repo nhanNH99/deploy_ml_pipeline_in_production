@@ -1,15 +1,12 @@
 # Script to train machine learning model.
+import json
 import os
 
 import joblib
 import pandas as pd
 from ml.data import process_data
-from ml.model import (
-    compute_model_metrics,
-    inference,
-    train_model,
-    compute_slice_metrics,
-)
+from ml.model import (compute_model_metrics, compute_slice_metrics, inference,
+                      train_model)
 from sklearn.model_selection import KFold
 
 # Add code to load in the data.
@@ -35,9 +32,9 @@ cat_features = [
 precision_scores = []
 recall_scores = []
 fbeta_scores = []
-
+dict_output = []
 # Perform K-Fold Cross-Validation
-for train_index, test_index in kf.split(data):
+for fold, (train_index, test_index) in enumerate(kf.split(data), 1):
     train = data.iloc[train_index]
     test = data.iloc[test_index]
 
@@ -65,6 +62,21 @@ for train_index, test_index in kf.split(data):
     precision_scores.append(precision)
     recall_scores.append(recall)
     fbeta_scores.append(fbeta)
+    for cat_feature in cat_features:
+        for category in data[cat_feature].unique():
+            dict_output.append(
+                {
+                    "fold": fold,
+                    "precision": precision,
+                    "recall": recall,
+                    "fbeta": fbeta,
+                    "feature": cat_feature,
+                    "category": category,
+                }
+            )
+dict_output_str = json.dumps(dict_output, indent=4)
+with open("slice_output.txt", "w") as f:
+    f.write(dict_output_str)
 
 avg_precision = sum(precision_scores) / len(precision_scores)
 avg_recall = sum(recall_scores) / len(recall_scores)
@@ -73,5 +85,3 @@ avg_fbeta = sum(fbeta_scores) / len(fbeta_scores)
 print(f"Average Precision: {avg_precision:.4f}")
 print(f"Average Recall: {avg_recall:.4f}")
 print(f"Average F-beta: {avg_fbeta:.4f}")
-
-compute_slice_metrics(model, X_test, y_test, cat_features)

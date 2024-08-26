@@ -1,9 +1,10 @@
-from sklearn.metrics import fbeta_score, precision_score, recall_score
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import GridSearchCV
-import pandas as pd
-import joblib
 import os
+
+import joblib
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.model_selection import GridSearchCV
 
 
 # Optional: implement hyperparameter tuning.
