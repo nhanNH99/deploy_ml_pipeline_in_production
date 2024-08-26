@@ -35,4 +35,4 @@ jobs:
         pytest -v    
     - name: Test with santity check
       run: |
-        python starter/sanity_check.py
+        python starter/sanitycheck.py
