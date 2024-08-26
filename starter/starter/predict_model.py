@@ -46,11 +46,12 @@ def main_inference(input_data: dict):
         return "Salary <= 50K"
     else:
         return "Salary > 50K"
-  
+
+
 def compute_slice_metrics(model, X, y, features):
     """
     Compute performance metrics for slices of data where the value of a given feature is fixed.
-    
+
     Parameters:
     - model: Trained machine learning model.
     - X: Feature DataFrame.
@@ -77,13 +78,15 @@ def compute_slice_metrics(model, X, y, features):
             precision, recall, fbeta = compute_model_metrics(y_slice, y_pred)
 
             # Store the metrics
-            metrics_output.append(f"Metrics for {feature} = {value}:\n"
-                                f"  Precision: {precision:.4f}\n"
-                                f"  Recall: {recall:.4f}\n"
-                                f"  F-beta Score: {fbeta:.4f}\n\n")
+            metrics_output.append(
+                f"Metrics for {feature} = {value}:\n"
+                f"  Precision: {precision:.4f}\n"
+                f"  Recall: {recall:.4f}\n"
+                f"  F-beta Score: {fbeta:.4f}\n\n"
+            )
 
     with open("slice_output.txt", "w") as f:
         f.writelines(metrics_output)
 
-if __name__ == "__main__":
-    
+
+# if __name__ == "__main__":

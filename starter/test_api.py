@@ -4,13 +4,17 @@ from main import ai  # Replace with the actual module name
 
 client = TestClient(ai)
 
+
 def test_get_info():
     """
     Test the root endpoint to ensure it returns the correct welcome message.
     """
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to the MLOps project of Tran Duy Nhat Anh"}
+    assert response.json() == {
+        "message": "Welcome to the MLOps project of Tran Duy Nhat Anh"
+    }
+
 
 def test_inference_success():
     """
@@ -30,13 +34,14 @@ def test_inference_success():
         "race": "Black",
         "relationship": "Wife",
         "sex": "Female",
-        "workclass": "State-gov"
-        }
-    
+        "workclass": "State-gov",
+    }
+
     response = client.post("/inference", json=input_data)
     assert response.status_code == 200
     assert "message" in response.json()
     assert response.json()["message"] == "Salary <= 50K"
+
 
 def test_inference_invalid_data():
     """
@@ -53,8 +58,8 @@ def test_inference_invalid_data():
         "race": "Black",
         "relationship": "Wife",
         "sex": "Female",
-        "workclass": "State-gov"
-        }
-    
+        "workclass": "State-gov",
+    }
+
     response = client.post("/inference", json=input_data)
     assert response.status_code == 422
