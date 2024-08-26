@@ -4,8 +4,21 @@ from starter.ml.model import inference, compute_model_metrics
 from starter.ml.data import process_data
 import pandas as pd
 
+try:
+    # Try to construct the path based on the "model" directory
+    model_path = os.path.join(os.path.abspath("model"), "model.pkl")
 
-model_path = os.path.join(os.path.abspath("model"), "model.pkl")
+    # Check if the file exists at the constructed path
+    if not os.path.isfile(model_path):
+        raise FileNotFoundError(f"File not found at path: {model_path}")
+
+except FileNotFoundError:
+    # If the file is not found, try a different path
+    model_path = os.path.join(os.path.abspath("starter"), "model", "model.pkl")
+
+    # Check if the file exists at the new path
+    if not os.path.isfile(model_path):
+        raise FileNotFoundError(f"File not found at path: {model_path}")
 cat_features = [
     "workclass",
     "education",
