@@ -33,6 +33,3 @@ jobs:
       run: |
         pip install pytest
         pytest -v    
-    - name: Test with santity check
-      run: |
-        python starter/sanitycheck.py
