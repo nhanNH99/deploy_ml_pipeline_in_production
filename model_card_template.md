@@ -14,7 +14,7 @@ Using confusion matrix to evaluate the data test.
 ## Metrics
 The out of performance model archived: (screenshots/output_training.png)
 
-![Results](../project-3-udacity/starter/screenshots/output_training.png)
+![Results](../starter/screenshots/output_training.png)
 
 
 ## Ethical Considerations
