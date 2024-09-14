@@ -183,4 +183,3 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     run_sanity_check(args.test_dir)
- 
