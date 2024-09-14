@@ -17,9 +17,9 @@ The project in the udacity course is to build an AI service with full CI/CD for 
 ├── screenshots
 │   ├── continous_deloyment.png
 │   ├── continous_integration.png
-│   ├── example.png
 │   ├── live_get.png
-│   └── live_post.png
+│   |── live_post.png
+|   └── output_training.png
 ├── setup.py
 ├── starter
 │   ├── __init__.py
