@@ -54,4 +54,4 @@ def main_inference(input_data: dict):
     if result[0] == 0:
         return "Salary <= 50K"
     else:
-        return "Salary > 50K"
+        return "Salary > 50K" 
