@@ -123,4 +123,4 @@ Push code and monitoring in github actions
 
 Create the account in link : https://dashboard.render.com/web
 
-Here is the web deployed: https://anhtdn4-udacity.onrender.com/docs/ 
+Here is the web deployed: 
